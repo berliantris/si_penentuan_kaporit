@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="shortcut icon" href="public/assetsNotus/img/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="public/assetsNotus/img/apple-icon.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="public/assetsNotus/vendor/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link href="public/tailwindcss/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="public/assetsNotus/styles/tailwind.css" />
+    <title>Dashboard | Notus Tailwind JS by Creative Tim</title>
+  </head>
+  <body class="text-blueGray-700 antialiased">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <%- include('../components/sidebar.ejs') %>
+      <!-- sidebar responsive -->
+      <div class="relative md:ml-64 bg-blueGray-50">
+        <%- include('../components/sidebarResponsive.ejs') %>
+        <%- include('../components/header.ejs') %>
+        <div class="px-4 md:px-10 mx-auto w-full -m-24">
+          <div class="flex flex-wrap justify-center">
+            <div class="w-full lg:w-6/12 px-4">
+              <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
+                <div class="rounded-t bg-white mb-0 px-6 py-6">
+                  <div class="text-center flex justify-between">
+                    <h6 class="text-blueGray-700 text-xl font-bold">
+                      Tambah Akun
+                    </h6>
+                    <button type="button" class="bg-blue-600 hover:bg-blue-400 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" onclick="toggleModal('small-modal-id');">
+                      Simpan
+                    </button>
+
+                    <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="small-modal-id">
+                      <div class="relative w-auto my-6 mx-auto max-w-sm">
+                        <!--content-->
+                        <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                          <!--header-->
+                          <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                            <h3 class="text-3xl font-semibold">
+                              Pemberitahuan
+                            </h3>
+                            <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" onclick="toggleModal('small-modal-id')">
+                              <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                                ×
+                              </span>
+                            </button>
+                          </div>
+                          <!--body-->
+                          <div class="relative p-6 flex-auto">
+                            <p class="my-4 text-blueGray-500 text-lg leading-relaxed">
+                              Apakah anda yakin ?
+                            </p>
+                          </div>
+                          <!--footer-->
+                          <div type="button" class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                            <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"  onclick="toggleModal('small-modal-id')">
+                              Tidak
+                            </button>
+                            <button type="submit" class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" form="formTambahAdmin">
+                              Ya
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="small-modal-id-backdrop"></div>
+
+                  </div>
+                </div>
+                <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+                  <form id="formTambahAdmin" method="post" action="/admin-tambah">
+                    <h6
+                      class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase"
+                    >
+                      Admin
+                    </h6>
+                    <div class="flex flex-wrap">
+                      <div class="w-full lg:w-6/12 px-4">
+                        <div class="relative w-full mb-3">
+                          <label
+                            class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                            htmlFor="grid-password"
+                          >
+                            Nama Lengkap
+                          </label>
+                          <input class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" type="text" name="namaLengkap"
+                          />
+                        </div>
+                      </div>
+                      <div class="w-full lg:w-6/12 px-4">
+                        <div class="relative w-full mb-3">
+                          <label
+                            class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                            htmlFor="grid-password"
+                          >
+                            Username
+                          </label>
+                          <input class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" type="text" name="username"
+                          />
+                        </div>
+                      </div>
+                      <div class="w-full lg:w-6/12 px-4">
+                        <div class="relative w-full mb-3">
+                          <label
+                            class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                            htmlFor="grid-password"
+                          >
+                            Email
+                          </label>
+                          <input
+                            type="email"
+                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                            name="email"
+                          />
+                        </div>
+                      </div>
+                      <div class="w-full lg:w-6/12 px-4">
+                        <div class="relative w-full mb-3">
+                          <label
+                            class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                            htmlFor="grid-password"
+                          >
+                            Password
+                          </label>
+                          <input
+                            type="password"
+                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                            name="password"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full lg:w-9/12 mb-12 px-4">
+              <div
+                class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white"
+              >
+                <div class="rounded-t mb-0 px-4 py-3 border-0">
+                  <div class="flex flex-wrap items-center">
+                    <div
+                      class="relative w-full px-4 max-w-full flex-grow flex-1"
+                    >
+                      <h3 class="font-semibold text-lg text-blueGray-700">
+                        Tabel Admin
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="block w-full overflow-x-auto">
+                  <!-- Projects table -->
+                  <table
+                    class="items-center w-full bg-transparent border-collapse"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+                        >
+                          Nama Lengkap
+                        </th>
+                        <th
+                          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+                        >
+                          Username
+                        </th>
+                        <th
+                          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+                        >
+                          Email
+                        </th>
+                        <th
+                          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+                        ></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <% if(data.length > 0) { let i = 1 %>
+                      <% data.forEach(data => {  %>
+
+                      <tr>
+                        <th
+                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
+                        >
+                          <span class="font-bold text-blueGray-600">
+                            <%= data.namaLengkap %>
+                          </span>
+                        </th>
+                        <td
+                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                        >
+                          <%= data.username %>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                          <%= data.email %>
+                        </td>
+                        <td
+                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right"
+                        >
+                          <a
+                            href="#pablo"
+                            class="text-blueGray-500 block py-1 px-3"
+                            onclick="openDropdown(event,'dropdown<%= i %>')"
+                          >
+                            <i class="fas fa-ellipsis-v"></i>
+                          </a>
+                          <div
+                            class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48 hover:bg-red-100"
+                            id="dropdown<%= i %>"
+                          >
+                          <form id="formHapusAdmin<%= i %>" action="/admin-hapus" method="post">
+                            <input type="hidden" name="id" value="<%= data._id %>">
+                            <button class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-500" type="button" onclick="toggleModal('small-modal-id<%= i %>');">
+                              Hapus
+                            </button>
+                          </form>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <% i++ }) %>
+                      <% } %>
+
+                    </tbody>
+                  </table>
+
+                  <% if(data.length > 0) { let i = 1 %>
+                  <% data.forEach(data => {  %>
+
+                  <!-- modal -->
+                  <div class="text-center flex justify-between">
+                    <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="small-modal-id<%= i %>">
+                      <div class="relative w-auto my-6 mx-auto max-w-sm">
+                        <!--content-->
+                        <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                          <!--header-->
+                          <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                            <h3 class="text-3xl text-black font-semibold">
+                              Pemberitahuan
+                            </h3>
+                            <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" onclick="toggleModal('small-modal-id<%= i %>')">
+                              <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                                ×
+                              </span>
+                            </button>
+                          </div>
+                          <!--body-->
+                          <div class="relative p-6 flex-auto">
+                            <p class="my-4 text-blueGray-500 text-lg leading-relaxed">
+                              Apakah anda yakin ?
+                            </p>
+                          </div>
+                          <!--footer-->
+                          <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                            <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="toggleModal('small-modal-id<%= i %>')">
+                              Tidak
+                            </button>
+                            <button class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="submit" form="formHapusAdmin<%= i %>">
+                              Ya
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="small-modal-id-backdrop<%= i %>"></div>
+                  </div>
+                  
+                  <% i++ }) %>
+                  <% } %>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <%- include('../components/footer.ejs') %>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+      charset="utf-8"
+    ></script>
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+    <script type="text/javascript">
+      /* Make dynamic date appear */
+      (function () {
+        if (document.getElementById("get-current-year")) {
+          document.getElementById("get-current-year").innerHTML =
+            new Date().getFullYear();
+        }
+      })();
+      /* Sidebar - Side navigation menu on mobile/responsive mode */
+      function toggleNavbar(collapseID) {
+        document.getElementById(collapseID).classList.toggle("hidden");
+        document.getElementById(collapseID).classList.toggle("bg-white");
+        document.getElementById(collapseID).classList.toggle("m-2");
+        document.getElementById(collapseID).classList.toggle("py-3");
+        document.getElementById(collapseID).classList.toggle("px-6");
+      }
+      /* Function for dropdowns */
+      function openDropdown(event, dropdownID) {
+        let element = event.target;
+        while (element.nodeName !== "A") {
+          element = element.parentNode;
+        }
+        Popper.createPopper(element, document.getElementById(dropdownID), {
+          placement: "bottom-start"
+        });
+        document.getElementById(dropdownID).classList.toggle("hidden");
+        document.getElementById(dropdownID).classList.toggle("block");
+      }
+
+      (function () {
+        /* Bar Chart */
+        config = {
+          type: "bar",
+          data: {
+            labels: [
+              "Januari",
+              "Februari",
+              "Maret",
+              "April",
+              "Mei",
+              "Juni",
+              "Juli",
+              "Agustus",
+              "September",
+              "Oktober",
+              "November",
+              "Desember"
+            ],
+            datasets: [
+              // {
+              //   label: new Date().getFullYear(),
+              //   backgroundColor: "#ed64a6",
+              //   borderColor: "#ed64a6",
+              //   data: [30, 78, 56, 34, 100, 45, 13],
+              //   fill: false,
+              //   barThickness: 8
+              // },
+              {
+                label: "Klorin",
+                fill: false,
+                backgroundColor: "rgb(96 165 250)",
+                borderColor: "#4c51bf",
+                data: [1.2, 1.4, 1.3, 1.2, 1.2, 1.3, 1.4, 1.5, 1.6, 1.4, 1.2, 1.2],
+                barThickness: 20
+              }
+            ]
+          },
+          options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            title: {
+              display: false,
+              text: "Orders Chart"
+            },
+            tooltips: {
+              mode: "index",
+              intersect: false
+            },
+            hover: {
+              mode: "nearest",
+              intersect: true
+            },
+            legend: {
+              labels: {
+                fontColor: "rgba(0,0,0,.4)"
+              },
+              align: "end",
+              position: "bottom"
+            },
+            scales: {
+              xAxes: [
+                {
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Month"
+                  },
+                  gridLines: {
+                    borderDash: [2],
+                    borderDashOffset: [2],
+                    color: "rgba(33, 37, 41, 0.3)",
+                    zeroLineColor: "rgba(33, 37, 41, 0.3)",
+                    zeroLineBorderDash: [2],
+                    zeroLineBorderDashOffset: [2]
+                  }
+                }
+              ],
+              yAxes: [
+                {
+                  // max: 1,
+                  // min: 0,
+                  display: true,
+                  scaleLabel: {
+                    display: false,
+                    labelString: "Value"
+                  },
+                  gridLines: {
+                    borderDash: [2],
+                    drawBorder: false,
+                    borderDashOffset: [2],
+                    color: "rgba(33, 37, 41, 0.2)",
+                    zeroLineColor: "rgba(33, 37, 41, 0.15)",
+                    zeroLineBorderDash: [2],
+                    zeroLineBorderDashOffset: [2]
+                  }
+                }
+              ]
+            }
+          }
+        };
+        ctx = document.getElementById("bar-chart").getContext("2d");
+        window.myBar = new Chart(ctx, config);
+      })();
+
+      (function () {
+        /* Chart initialisations */
+        /* Line Chart */
+        var config = {
+          type: "line",
+          data: {
+            labels: [0, 0.3, 1, 1.25, 1.5, 3, ""],
+            datasets: [
+              {
+                label: "Rendah",
+                fill: false,
+                backgroundColor: "#fff",
+                borderColor: "rgb(248 113 113)",
+                data: [1, 1, 0.5, 0]
+              },
+              {
+                label: "Normal",
+                backgroundColor: "#fff",
+                borderColor: "#fff",
+                data: [null, null, 0, 1, 0],
+                fill: false
+              },
+              {
+                label: "Tinggi",
+                backgroundColor: "#fff",
+                borderColor: "rgb(74 222 128)",
+                data: [null, null, null, 0, 0.5, 1,1 ],
+                fill: false
+              },
+            ]
+          },
+          options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            title: {
+              display: false,
+              text: "Sales Charts",
+              fontColor: "white"
+            },
+            legend: {
+              labels: {
+                fontColor: "white"
+              },
+              align: "end",
+              position: "bottom"
+            },
+            tooltips: {
+              mode: "index",
+              intersect: false
+            },
+            hover: {
+              mode: "nearest",
+              intersect: true
+            },
+            scales: {
+              xAxes: [
+                {
+                  ticks: {
+                    fontColor: "rgba(255,255,255,.7)"
+                  },
+                  display: true,
+                  scaleLabel: {
+                    display: false,
+                    labelString: "Month",
+                    fontColor: "white"
+                  },
+                  gridLines: {
+                    display: false,
+                    borderDash: [2],
+                    borderDashOffset: [2],
+                    color: "rgba(33, 37, 41, 0.3)",
+                    zeroLineColor: "rgba(0, 0, 0, 0)",
+                    zeroLineBorderDash: [2],
+                    zeroLineBorderDashOffset: [2]
+                  }
+                }
+              ],
+              yAxes: [
+                {
+                  ticks: {
+                    fontColor: "rgba(255,255,255,.7)"
+                  },
+                  display: true,
+                  scaleLabel: {
+                    display: false,
+                    labelString: "Value",
+                    fontColor: "white"
+                  },
+                  gridLines: {
+                    borderDash: [3],
+                    borderDashOffset: [3],
+                    drawBorder: false,
+                    color: "rgba(255, 255, 255, 0.15)",
+                    zeroLineColor: "rgba(33, 37, 41, 0)",
+                    zeroLineBorderDash: [2],
+                    zeroLineBorderDashOffset: [2]
+                  }
+                }
+              ]
+            }
+          }
+        };
+        var ctx = document.getElementById("line-chart2").getContext("2d");
+        window.myLine = new Chart(ctx, config);
+      })();
+
+      function toggleModal(modalID){
+        document.getElementById(modalID).classList.toggle("hidden");
+        document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
+        document.getElementById(modalID).classList.toggle("flex");
+        document.getElementById(modalID + "-backdrop").classList.toggle("flex");
+      }
+    </script>
+  </body>
+</html>

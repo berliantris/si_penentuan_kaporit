@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="76x76" href="public/assets/img/apple-icon.png"/>
+    <link rel="icon" type="image/png" href="public/assets/img/favicon.png" />
+    <title>Hitung Kaporit Grage Resort Hotel</title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Nucleo Icons -->
+    <link href="public/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="public/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Main Styling -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link href="public/tailwindcss/output.css" rel="stylesheet" />
+    <link href="public/assets/css/argon-dashboard-tailwind.css?v=1.0.1" rel="stylesheet" />
+  </head>
+
+  <body class="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500">
+    <!-- <h1 class="text-lg text-yellow-500">test tailwindbbb</h1> -->
+    <!-- Navbar -->
+    <nav class="absolute top-0 z-30 flex flex-wrap items-center justify-between w-full px-4 py-2 mt-6 mb-4 shadow-none lg:flex-nowrap lg:justify-start">
+      <div class="container flex items-center justify-between py-0 flex-wrap-inherit">
+        <a class="py-1.75 ml-4 mr-4 font-bold text-white text-sm whitespace-nowrap lg:ml-0" href="https://demos.creative-tim.com/argon-dashboard-tailwind/pages/dashboard.html" target="_blank"> SISTEM PENENTUAN TAKARAN <br>DOSIS KAPORIT </a>
+        
+      </div>
+    </nav>
+
+    <main class="mt-0 transition-all duration-200 ease-in-out">
+      <section class="min-h-screen">
+        <div class="bg-top relative flex items-start pt-12 pb-56 m-4 overflow-hidden bg-cover min-h-50-screen rounded-xl bg-[url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg')]">
+          <span class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-to-tl from-zinc-800 to-zinc-700 opacity-60"></span>
+          <div class="container z-10">
+            <div class="flex flex-wrap justify-center -mx-3">
+              <div class="max-w-full px-3 mx-auto mt-0 text-center lg:flex-0 shrink-0 sm:w-8/12 md:w-6/12 pt-16">
+                <h1 class="mt-12 mb-2 text-white uppercase">Dosis Kaporit</h1>
+                <!-- <p class="text-white">Sistem ini membantu menentukan takaran dosis kaporit yang optimal untuk menhaga kebersihan kolam renang.</p> -->
+                <div alert class="relative w-full py-2 text-white rounded-full bg-gray-800 opacity-95">Dengan kadar klorin sebesar <span class="font-bold"><%= klorin %> ppm</span> adalah <span class="font-bold"><%= zTotal %> kg</span>
+                </div>
+                <input type="hidden" name="klorin">
+                <a href="/hitung-kaporit" class="inline-block px-6 py-0 mt-6 mr-3 font-bold text-center text-blue-500 uppercase align-middle transition-all rounded-lg cursor-pointer bg-blue-500/0 leading-normal text-md ease-in tracking-tight-rem bg-150 bg-x-25 hover:bg-blue-500/25 hover:-translate-y-px active:bg-blue/45">Hitung lagi</a>
+              </div>
+            </div>
+
+            <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center z-1" id="small-modal-id">
+              <div class="relative w-auto my-6 mx-auto max-w-sm">
+                <!--content-->
+                <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                  <!--header-->
+                  <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                    <h3 class="text-3xl font-semibold">
+                      Pemberitahuan
+                    </h3>
+                    <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" onclick="toggleModal('small-modal-id')">
+                      <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                        ×
+                      </span>
+                    </button>
+                  </div>
+                  <!--body-->
+
+                  <form action="/simpan-kaporit" method="post">
+                    <div class="relative p-6 flex-auto">
+                      <p class="my-4 text-blueGray-500 text-lg leading-relaxed">
+                        Masukkan nama anda ?
+                      </p>
+                      <input name="namaStaf" type="text" class="placeholder:text-gray-500 text-sm focus:shadow-primary-outline leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-blue-500 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow mt-0" placeholder="Nama Staf" aria-label="Name" aria-describedby="email-addon"/>
+                      <input type="hidden" value="<%= klorin %>" name="kadarKlorin">
+                      <input type="hidden" value="<%= alpha.a1 %>" name="a1">
+                      <input type="hidden" value="<%= alpha.a2 %>" name="a2">
+                      <input type="hidden" value="<%= z.z1 %>" name="z1">
+                      <input type="hidden" value="<%= z.z2 %>" name="z2">
+                      <input type="hidden" value="<%= zTotal %>" name="zTotal">
+                    </div>
+                    
+                    <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                      <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="toggleModal('small-modal-id')">
+                        Tidak
+                      </button>
+                      <button class="bg-blue-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg hover:bg-blue-300 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="submit">
+                        Simpan
+                      </button>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container z-100">
+          <div class="flex flex-wrap -mx-3">
+            <div class="flex-none w-full lg:w-8/12 mx-auto max-w-full px-3">
+              <div class="relative flex flex-col min-w-0 mb-6 break-words bg-blue-100 opacity-90 border-0 border-transparent border-solid shadow-xl rounded-xl bg-clip-border opacity-85">
+                <div class="p-6 pt-3 pb-2 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent flex justify-between">
+                  <h6 class="text-lg">Tabel Fuzzifikasi</h6>
+                  <button
+                  class="bg-blue-500 font-bold py-0 text-white uppercase text-xxs px-4 hover:bg-blue-300 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                  type="button" onclick="toggleModal('small-modal-id');"
+                >
+                  Simpan
+                </button>
+                
+
+                </div>
+                <div class="flex-auto px-0 pt-0 pb-2">
+                  <div class="p-0 overflow-x-auto">
+                    <table class="items-center justify-center w-full mb-0 align-top border-collapse text-slate-500">
+                      <thead class="align-bottom">
+                        <tr>
+                          <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">No.</th>
+                          <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Rule Fuzzy</th>
+                          <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">K1</th>
+                          <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">alpha predikat</th>
+                          <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">z hasil</th>
+                        </tr>
+                      </thead>
+                      <tbody class="border-t">
+                        <tr>
+                          <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                            <div class="flex px-2">
+                              <div class="ml-2 my-auto">
+                                <h6 class="mb-0 text-xs leading-normal">R1</h6>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                            <div class="flex px-2">
+                              <div class="ml-2 my-auto">
+                                <h6 class="mb-0 text-xs leading-normal">IF Klorin RENDAH, THEN Kaporit <span class="uppercase">Banyak</span></h6>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                            <p class="mb-0 text-sm font-semibold leading-normal"><%= alpha.a1 %></p>
+                          </td>
+                          <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                            <p class="mb-0 text-sm font-semibold leading-normal"><%= alpha.a1 %></p>
+                          </td>
+                          <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                            <span class="text-xs font-semibold leading-tight"><%= z.z1 %></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                            <div class="flex px-2">
+                              <div class="ml-2 my-auto">
+                                <h6 class="mb-0 text-xs leading-normal">R2</h6>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                            <div class="flex px-2">
+                              <div class="ml-2 my-auto">
+                                <h6 class="mb-0 text-xs leading-normal">IF Klorin NORMAL, THEN Kaporit <span class="uppercase">Sedikit</span></h6>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                            <p class="mb-0 text-sm font-semibold leading-normal"><%= alpha.a2 %></p>
+                          </td>
+                          <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                            <p class="mb-0 text-sm font-semibold leading-normal"><%= alpha.a2 %></p>
+                          </td>
+                          <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                            <span class="text-xs font-semibold leading-tight"><%= z.z2 %></span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-none w-full lg:w-8/12 mx-auto max-w-full px-3">
+              <div class="relative flex flex-col min-w-0 mb-6 break-words bg-blue-100 opacity-90 border-0 border-transparent border-solid shadow-xl rounded-xl bg-clip-border opacity-85">
+                <div class="flex-auto px-0 pt-0 pb-2">
+                  <div class="p-0 overflow-x-auto">
+                    <table class="items-center justify-center w-full mb-0 align-top border-collapse text-slate-500">
+                      <thead class="align-bottom">
+                        <tr>
+                          <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-900 opacity-70">Defuzzifikasi</th>
+                          <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-900 opacity-70">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody class="border-t">
+                        <tr>
+                          <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                            <div class="flex px-2">
+                              <div class="ml-2 my-auto">
+                                <h6 class="mb-0 text-xs leading-normal">(a1*z1) + (a2*z2) / (a1+a2) = (<%= alpha.a1 %>*<%= z.z1 %>) + (<%= alpha.a2 %>*<%= z.z2 %>) / (<%= alpha.a1 %>+<%= alpha.a2 %>)</h6>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                            <p class="mb-0 text-sm font-semibold leading-normal"><%= zTotal %></p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+  <!-- plugin for scrollbar  -->
+  <script src="public/assets/js/plugins/perfect-scrollbar.min.js" async></script>
+  <!-- main script file  -->
+  <script src="public/assets/js/argon-dashboard-tailwind.js?v=1.0.1" async>
+  </script>
+  <script>
+    function toggleModal(modalID){
+        document.getElementById(modalID).classList.toggle("hidden");
+        document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
+        document.getElementById(modalID).classList.toggle("flex");
+        document.getElementById(modalID + "-backdrop").classList.toggle("flex");
+      }
+  </script>
+</html>

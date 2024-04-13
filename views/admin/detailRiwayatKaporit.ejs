@@ -1,0 +1,216 @@
+<!--
+
+=========================================================
+* Notus Tailwind JS - v1.1.0 based on Tailwind Starter Kit by Creative Tim
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/notus-js
+* Copyright 2021 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md)
+
+* Tailwind Starter Kit Page: https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="shortcut icon" href="public/assetsNotus/img/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="public/assetsNotus/img/apple-icon.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="public/assetsNotus/vendor/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link href="public/tailwindcss/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="public/assetsNotus/styles/tailwind.css" />
+    <title>Tables | Notus Tailwind JS by Creative Tim</title>
+  </head>
+  <body class="text-blueGray-700 antialiased">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <%- include('../components/sidebar.ejs') %>
+      <!-- sidebar responsive -->
+      <div class="relative md:ml-64 bg-blueGray-50">
+        <%- include('../components/sidebarResponsive.ejs') %>
+        <%- include('../components/header.ejs') %>
+        <div class="px-4 md:px-10 mx-auto w-full -m-24">
+          <div class="flex flex-wrap mt-4">
+            <div class="w-full mb-12 px-4">
+              <div
+                class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-pink-900 text-white"
+              >
+                <div class="rounded-t mb-0 px-4 py-3 border-0">
+                  <div class="flex flex-wrap items-center">
+                    <div
+                      class="relative w-full px-4 max-w-full flex-grow flex-1"
+                    >
+                      <h3 class="font-semibold text-lg text-white text-center">
+                        Detail Riwayat Pemberian Kaporit
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="block w-full overflow-x-auto">
+                  <!-- Projects table -->
+                  <table
+                    class="items-center w-full bg-transparent border-collapse"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700"
+                        >
+                          NO
+                        </th>
+                        <th
+                          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700"
+                        >
+                          Aturan Fuzzy
+                        </th>
+                        <th
+                          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700"
+                        >
+                          K1
+                        </th>
+                        <th
+                          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700"
+                        >
+                          Alpha Predikat
+                        </th>
+                        <th
+                          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700"
+                        >
+                          Z Hasil
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-bold uppercase">
+                          R1
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                          <h6 class="mb-0 text-xs leading-normal">IF Klorin NORMAL, THEN Kaporit <span class="uppercase">Sedikit</span></h6>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                          <p class="mb-0 text-sm font-semibold leading-normal"><%= alpha.a1 %></p>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 capitalize">
+                          <p class="mb-0 text-sm font-semibold leading-normal"><%= alpha.a1 %></p>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                          <span class="text-xs font-semibold leading-tight"><%= z.z1 %></span>
+                        </td>
+                      </tr>
+                        <tr>
+                          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-bold uppercase">
+                            R2
+                          </td>
+                          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                            <h6 class="mb-0 text-xs leading-normal">IF Klorin NORMAL, THEN Kaporit <span class="uppercase">Sedikit</span></h6>
+                          </td>
+                          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                            <p class="mb-0 text-sm font-semibold leading-normal"><%= alpha.a2 %></p>
+                          </td>
+                          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 capitalize">
+                            <p class="mb-0 text-sm font-semibold leading-normal"><%= alpha.a2 %></p>
+                          </td>
+                          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                            <span class="text-xs font-semibold leading-tight"><%= z.z2 %></span>
+                          </td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- tabel ke 2 -->
+              <div class="relative mx-auto flex flex-col min-w-0 break-words w-full xl:w-8/12 mb-6 shadow-lg rounded bg-pink-900 text-white">
+                <div class="block w-full overflow-x-auto">
+                  <!-- Projects table -->
+                  <table
+                    class="items-center w-full bg-transparent border-collapse"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700"
+                        >
+                          DEFUZZIFIKASI
+                        </th>
+                        <th
+                          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700"
+                        >
+                          TOTAL
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-bold uppercase">
+                          <h6 class="mb-0 text-xs leading-normal">(a1*z1) + (a2*z2) / (a1+a2) = (<%= alpha.a1 %>*<%= z.z1 %>) + (<%= alpha.a2 %>*<%= z.z2 %>) / (<%= alpha.a1 %>+<%= alpha.a2 %>)</h6>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                          <p class="mb-0 text-sm font-semibold leading-normal"><%= zTotal %></p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%- include('../components/footer.ejs') %>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+    <script type="text/javascript">
+      /* Make dynamic date appear */
+      (function () {
+        if (document.getElementById("get-current-year")) {
+          document.getElementById("get-current-year").innerHTML =
+            new Date().getFullYear();
+        }
+      })();
+      /* Sidebar - Side navigation menu on mobile/responsive mode */
+      function toggleNavbar(collapseID) {
+        document.getElementById(collapseID).classList.toggle("hidden");
+        document.getElementById(collapseID).classList.toggle("bg-white");
+        document.getElementById(collapseID).classList.toggle("m-2");
+        document.getElementById(collapseID).classList.toggle("py-3");
+        document.getElementById(collapseID).classList.toggle("px-6");
+      }
+      /* Function for dropdowns */
+      function openDropdown(event, dropdownID) {
+        let element = event.target;
+        while (element.nodeName !== "A") {
+          element = element.parentNode;
+        }
+        Popper.createPopper(element, document.getElementById(dropdownID), {
+          placement: "bottom-start"
+        });
+        document.getElementById(dropdownID).classList.toggle("hidden");
+        document.getElementById(dropdownID).classList.toggle("block");
+      }
+    </script>
+  </body>
+</html>

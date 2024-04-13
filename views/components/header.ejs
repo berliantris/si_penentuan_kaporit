@@ -1,0 +1,194 @@
+<!-- Header -->
+<div class="relative bg-blue-300 md:pt-32 pb-32 pt-12 rounded-xl">
+  <div class="px-4 md:px-10 mx-auto w-full">
+    <div>
+      <!-- Card stats -->
+      <div class="flex flex-wrap">
+        <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+          <div
+            class="relative flex flex-col min-w-0 break-words bg-white rounded-lg mb-6 xl:mb-0 shadow-lg"
+          >
+            <div class="flex-auto p-4">
+              <div class="flex flex-wrap">
+                <div
+                  class="relative w-full pr-4 max-w-full flex-grow flex-1"
+                >
+                  <h5
+                    class="text-blueGray-400 uppercase font-bold text-xs"
+                  >
+                    kadar klorin awal pada hari ini
+                  </h5>
+                  <span class="font-semibold text-xl text-blueGray-700">
+                    <%= klorinHariIni %> ppm
+                  </span>
+                </div>
+                <div class="relative w-auto pl-4 flex-initial">
+                  <div
+                    class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-red-400"
+                  >
+                    <i class="fas fa-vial"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="text-sm text-blueGray-400 mt-4">
+
+                <% if(perbandinganKlorinHari > 0) { %>
+                  <span class="text-emerald-500 mr-2">
+                    <i class="fas fa-arrow-up"></i> <%= perbandinganKlorinHari %>
+                  </span>
+                <% } else if(perbandinganKlorinHari == 0) { %>
+                  <span class="mr-2">
+                    - <%= perbandinganKlorinHari %>
+                  </span>
+                <% } else { %>
+                  <span class="text-red-500 mr-2">
+                    <i class="fas fa-arrow-down"></i> <%= perbandinganKlorinHari %>
+                  </span>
+                <% } %>
+
+                <span class="whitespace-nowrap">
+                  Dibanding kemarin
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+          <div
+            class="relative flex flex-col min-w-0 break-words bg-white rounded-lg mb-6 xl:mb-0 shadow-lg"
+          >
+            <div class="flex-auto p-4">
+              <div class="flex flex-wrap">
+                <div
+                  class="relative w-full pr-4 max-w-full flex-grow flex-1"
+                >
+                  <h5 class="text-blueGray-400 uppercase font-bold text-xs">
+                    dosis kaporit pada hari ini
+                  </h5>
+                  <span class="font-semibold text-xl text-blueGray-700">
+                    <%= kaporitHariIni %> Kg
+                  </span>
+                </div>
+                <div class="relative w-auto pl-4 flex-initial">
+                  <div
+                    class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-orange-400"
+                  >
+                    <i class="fas fa-balance-scale-right"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="text-sm text-blueGray-400 mt-4">
+                <% if(perbandinganKaporitHari > 0) { %>
+                  <span class="text-emerald-500 mr-2">
+                    <i class="fas fa-arrow-up"></i> <%= perbandinganKaporitHari %>
+                  </span>
+                <% } else if(perbandinganKaporitHari == 0) { %>
+                  <span class="mr-2">
+                    - <%= perbandinganKaporitHari %>
+                  </span>
+                <% } else { %>
+                  <span class="text-red-500 mr-2">
+                    <i class="fas fa-arrow-down"></i> <%= perbandinganKaporitHari %>
+                  </span>
+                <% } %>
+                <span class="whitespace-nowrap"> Dibanding kemarin </span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+          <div
+            class="relative flex flex-col min-w-0 break-words bg-white rounded-lg mb-6 xl:mb-0 shadow-lg"
+          >
+            <div class="flex-auto p-4">
+              <div class="flex flex-wrap">
+                <div
+                  class="relative w-full pr-4 max-w-full flex-grow flex-1"
+                >
+                  <h5
+                    class="text-blueGray-400 uppercase font-bold text-xs"
+                  >
+                    rata-rata klorin bulan ini
+                  </h5>
+                  <span class="font-semibold text-xl text-blueGray-700">
+                    <%= rerataKlorinBulanIni %> ppm
+                  </span>
+                </div>
+                <div class="relative w-auto pl-4 flex-initial">
+                  <div
+                    class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-pink-400"
+                  >
+                    <i class="fas fa-chart-bar"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="text-sm text-blueGray-400 mt-4">
+                <% if(perbandinganKlorinBulan > 0) { %>
+                  <span class="text-emerald-500 mr-2">
+                    <i class="fas fa-arrow-up"></i> <%= perbandinganKlorinBulan %>
+                  </span>
+                <% } else if(perbandinganKlorinBulan == 0) { %>
+                  <span class="mr-2">
+                    - <%= perbandinganKlorinBulan %>
+                  </span>
+                <% } else { %>
+                  <span class="text-red-500 mr-2">
+                    <i class="fas fa-arrow-down"></i> <%= perbandinganKlorinBulan %>
+                  </span>
+                <% } %>
+                <span class="whitespace-nowrap"> Dibanding bulan lalu </span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+          <div
+            class="relative flex flex-col min-w-0 break-words bg-white rounded-lg mb-6 xl:mb-0 shadow-lg"
+          >
+            <div class="flex-auto p-4">
+              <div class="flex flex-wrap">
+                <div
+                  class="relative w-full pr-4 max-w-full flex-grow flex-1"
+                >
+                  <h5
+                    class="text-blueGray-400 uppercase font-bold text-xs"
+                  >
+                    total dosis kaporit bulan ini
+                  </h5>
+                  <span class="font-semibold text-xl text-blueGray-700">
+                    <%= kaporitBulanIni %> Kg
+                  </span>
+                </div>
+                <div class="relative w-auto pl-4 flex-initial">
+                  <div
+                    class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-lightBlue-400"
+                  >
+                    <i class="fas fa-weight-hanging"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="text-sm text-blueGray-400 mt-4">
+                <% if(perbandinganKaporitBulan > 0) { %>
+                  <span class="text-emerald-500 mr-2">
+                    <i class="fas fa-arrow-up"></i> <%= perbandinganKaporitBulan %>
+                  </span>
+                <% } else if(perbandinganKaporitBulan == 0) { %>
+                  <span class="mr-2">
+                    - <%= perbandinganKaporitBulan %>
+                  </span>
+                <% } else { %>
+                  <span class="text-red-500 mr-2">
+                    <i class="fas fa-arrow-down"></i> <%= perbandinganKaporitBulan %>
+                  </span>
+                <% } %>
+                <span class="whitespace-nowrap">
+                  Dibanding bulan lalu
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
