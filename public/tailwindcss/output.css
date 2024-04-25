@@ -1099,6 +1099,34 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg');
 }
 
+.bg-\[url\(\'public\/assets\/img\/\'\)\] {
+  background-image: url('public/assets/img/');
+}
+
+.bg-\[url\(\'public\/assets\/img\/kolam1\.png\'\)\] {
+  background-image: url('public/assets/img/kolam1.png');
+}
+
+.bg-\[url\(\'\.\/public\/assets\/img\/kolam1\.png\'\)\] {
+  background-image: url('./public/assets/img/kolam1.png');
+}
+
+.bg-\[url\(\'\.\.\/\.\.\/public\/assets\/img\/kolam1\.png\'\)\] {
+  background-image: url('../../public/assets/img/kolam1.png');
+}
+
+.bg-\[url\(\'\.\.\/\.\.\/public\/assets\/img\/kolam1\.jpg\'\)\] {
+  background-image: url('../../public/assets/img/kolam1.jpg');
+}
+
+.bg-\[url\(\'\.\.\/\.\.\/public\/assets\/img\/kolam2\.jpg\'\)\] {
+  background-image: url('../../public/assets/img/kolam2.jpg');
+}
+
+.bg-\[url\(\'\.\.\/\.\.\/public\/assets\/img\/kolam3\.jpg\'\)\] {
+  background-image: url('../../public/assets/img/kolam3.jpg');
+}
+
 .from-blue-500 {
   --tw-gradient-from: #3b82f6;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(59 130 246 / 0));
