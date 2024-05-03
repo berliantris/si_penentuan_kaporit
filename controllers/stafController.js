@@ -114,6 +114,8 @@ hasilHitungKaporit: (req, res) => {
         let z2Result = limitDecimal(z2Hasil, 2)
         let dResult = limitDecimal(defuzzifikasiHasil, 2)
 
+        console.log(`(a1:${alphaRendah}*z1:${z1Hasil}) + (a2:${alphaNormal}*z2:${z2Hasil}) / a1:${alphaRendah} + a2:${alphaNormal} (hasil: ${defuzzifikasiHasil})`)
+
         res.render('../views/staf/hasilHitungKaporit.ejs', {
         klorin: klorin,
         alpha: {
@@ -142,7 +144,7 @@ simpanHasilHitungKaporit: (req, res) => {
     let bulanInt = d.getMonth()+1
     let bulanString = namaBulan[d.getMonth()]
     let tahunInt = d.getFullYear()
-    let mingguInt = Math.ceil(tanggalInt/ 7)
+    let mingguInt = Math.ceil(tanggalInt / 7)
     if(mingguInt == 5) {
         mingguInt = 4
     }
